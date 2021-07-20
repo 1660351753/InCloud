@@ -1,2 +1,2 @@
--q 'domain="ziroom.com"' --host ziroom.com -m sfscan -o output/answer.txt
--q 'domain="zihome.com"' --host zihome.com -m sfscan -o output/answer.txt
+-q 'domain="ziroom.com"' --host ziroom.com -m sfscan -o output/ziroom.com.txt
+-q 'domain="zihome.com"' --host zihome.com -m sfscan -o output/zihome.com.txt
