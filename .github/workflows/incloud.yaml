@@ -18,7 +18,7 @@ jobs:
           wget https://github.com/P1-Team/AlliN/archive/refs/tags/v2.1.8.zip
           unzip v2.1.8.zip
           cp AlliN-2.1.8/AlliN.py AlliN.py
-          cat input/actions.txt|while read line; do echo $line ;done
+          cat input/actions.txt|while read line; do python AlliN.py $line ;done
           tar -czvf Allinlog.tar.gz output/
           mv Allinlog.tar.gz output/Allinlog.tar.gz
         shell: bash
