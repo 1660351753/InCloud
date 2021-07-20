@@ -9,62 +9,27 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
-
-      - name: Setup golang
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.14
-
-      - name: Setup Dependencies
-        run: sudo apt-get install libpcap-dev 
-           
         
-
-      - name: Cache Go
-        id: cache-go
-        uses: actions/cache@v2
-        with:
-          path: /home/runner/go
-          key: ${{ runner.os }}-go
-
-      - name: Setting up ProjectDiscovery tools
-        if: steps.cache-go.outputs.cache-hit != 'true'
-        env:
-          GO111MODULE: on
+      - name: Setup Dependencies
+        run: sudo apt-get -y install python
+        
+      - name: Allin scan
         run: |
-          go get -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder
-          go get -v github.com/projectdiscovery/dnsx/cmd/dnsx
-          go get -v github.com/projectdiscovery/naabu/v2/cmd/naabu
-          go get -v github.com/projectdiscovery/httpx/cmd/httpx
-          go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
-        shell: bash
-
-
-      - name: Running naabu to check top all ports
-        run: |
-          naabu -iL input/target.txt  -rate 10000 -p - | tee output/active_ports.txt
-        shell: bash
-
-
-      - name: Running httpx for HTTP webservers probbing
-        run: |
-          httpx -l output/active_ports.txt -title
-          httpx -l output/active_ports.txt | tee output/active_urls.txt
-        shell: bash
-
-      - name: Sorting the output results
-        run: |
-          find output -type f -exec sort {} -o {} \;
+          wget https://github.com/P1-Team/AlliN/archive/refs/tags/v2.1.8.zip
+          unzip AlliN-2.1.8.zip
+          cp AlliN-2.1.8/AlliN.py AlliN.py xray
+          for i in $(cat input/actions.txt ); do python ./AlliN.py $i ;done
+          tar -czvf Allin.tar.gz output/
+          mv Allinlog.tar.gz output/Allinlog.tar.gz
         shell: bash
 
       - name: Create local changes
         run: |
-          git add output/active_ports.txt
-          git add output/active_urls.txt
+          git add output/Allinlog.tar.gz
       - name: Commit results to Github
         run: |
-          git config --local user.email "admin@inbug.org"
-          git config --global user.name "inbug-team"
+          git config --local user.email "1660351753@qq.com"
+          git config --global user.name "1660351753"
           git commit -m "InCloud Report" -a --allow-empty
       - name: Push changes
         uses: ad-m/github-push-action@master
