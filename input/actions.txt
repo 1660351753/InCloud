@@ -1,2 +1,2 @@
--q 'domain="zihome.com"' --host zihome.com -m sfscan -o output/zihome.com.txt
+-q 'domain="baobao.baidu.com"' --host baobao.baidu.com -m sfscan -o output/baobao.baidu.com.txt
 -q 'domain="ziroom.com"' --host ziroom.com -m sfscan -o output/ziroom.com.txt
