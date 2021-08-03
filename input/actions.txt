@@ -1,2 +1,5 @@
--q 'domain="bjbaidu.cn"' --host bjbaidu.cn -m sfscan -o output/bjbaidu.cn.txt
--q 'domain="nuomi.com"' --host nuomi.com -m sfscan -o output/nuomi.com 
+-q 'domain="xinchong.com"' --host xinchong.com -m sfscan -o output/xinchong.com.txt
+-q 'domain="58che.com"' --host 58che.com -m sfscan -o output/58che.com
+-q 'domain="jxedt.com"' --host jxedt.com -m sfscan -o output/jxedt.com
+-q 'domain="youxinpai.com"' --host youxinpai.com -m sfscan -o output/youxinpai.com
+-q 'domain="chinahr.com"' --host chinahr.com -m sfscan -o output/chinahr.com
