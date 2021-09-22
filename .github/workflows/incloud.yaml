@@ -23,7 +23,7 @@ jobs:
           mv OneForAll-master/data/subnames_big.txt OneForAll-master/data/subnames.txt
           cp input/actions.txt OneForAll-master/domains.txt
           cd OneForAll-master
-          python3 oneforall.py --targets ./domains.txt run
+          python oneforall.py --targets ./domains.txt run
           tar -czvf results.tar.gz results/*
           cd ..
           mv OneForAll-master/results.tar.gz output/results.tar.gz
