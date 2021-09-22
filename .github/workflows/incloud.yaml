@@ -26,6 +26,7 @@ jobs:
           cd ..
           cp input/actions.txt OneForAll-0.4.3/domains.txt
           cd OneForAll-0.4.3/
+          pip3 install -r requirements.txt
           python3 oneforall.py --targets ./domains.txt run
           tar -czvf results.tar.gz results/*
           cd ..
