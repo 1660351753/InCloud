@@ -15,16 +15,23 @@ jobs:
         
       - name: Allin scan
         run: |
-          wget https://github.com/P1-Team/AlliN/archive/refs/tags/v2.1.8.zip
-          unzip v2.1.8.zip
-          cp AlliN-2.1.8/AlliN.py AlliN.py
-          cat input/actions.txt|while read line; do echo $line;python AlliN.py $line ;done
-          tar -czvf Allinlog.tar.gz output/
-          mv Allinlog.tar.gz output/Allinlog.tar.gz
+          //wget https://github.com/P1-Team/AlliN/archive/refs/tags/v2.1.8.zip
+          wget https://github.com/shmilylty/OneForAll/archive/refs/tags/v0.4.3.zip
+          unzip v0.4.3.zip
+          mv OneForAll-master/data/subnames.txt OneForAll-master/data/subnames1.txt
+          sudo apt-get install p7zip
+          7z x OneForAll-master/data/subnames_big.7z -o OneForAll-master/data/
+          mv OneForAll-master/data/subnames_big.txt OneForAll-master/data/subnames.txt
+          cp input/actions.txt OneForAll-master/domains.txt
+          cd OneForAll-master
+          python3 oneforall.py --targets ./domains.txt run
+          tar -czvf results.tar.gz results/*
+          cd ..
+          mv OneForAll-master/results.tar.gz output/results.tar.gz
         shell: bash
       - name: Create local changes
         run: |
-          git add output/Allinlog.tar.gz
+          git add output/results.tar.gz
       - name: Commit results to Github
         run: |
           git config --local user.email "1660351753@qq.com"
