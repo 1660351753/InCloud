@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@master
         
       - name: Setup Dependencies
-        run: sudo apt-get -y install python
+        run: sudo apt-get -y install python3
         
       - name: Allin scan
         run: |
@@ -26,7 +26,7 @@ jobs:
           cd ..
           cp input/actions.txt OneForAll-0.4.3/domains.txt
           cd OneForAll-0.4.3/
-          python oneforall.py --targets ./domains.txt run
+          python3 oneforall.py --targets ./domains.txt run
           tar -czvf results.tar.gz results/*
           cd ..
           mv OneForAll-0.4.3/results.tar.gz output/results.tar.gz
