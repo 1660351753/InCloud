@@ -15,7 +15,6 @@ jobs:
         
       - name: Allin scan
         run: |
-          //wget https://github.com/P1-Team/AlliN/archive/refs/tags/v2.1.8.zip
           wget https://github.com/shmilylty/OneForAll/archive/refs/tags/v0.4.3.zip
           unzip v0.4.3.zip
           mv OneForAll-master/data/subnames.txt OneForAll-master/data/subnames1.txt
