@@ -17,16 +17,16 @@ jobs:
         run: |
           wget https://github.com/shmilylty/OneForAll/archive/refs/tags/v0.4.3.zip
           unzip v0.4.3.zip
-          mv OneForAll-master/data/subnames.txt OneForAll-master/data/subnames1.txt
+          mv OneForAll-0.4.3/data/subnames.txt OneForAll-0.4.3/data/subnames1.txt
           sudo apt-get install p7zip
-          7z x OneForAll-master/data/subnames_big.7z -o OneForAll-master/data/
-          mv OneForAll-master/data/subnames_big.txt OneForAll-master/data/subnames.txt
-          cp input/actions.txt OneForAll-master/domains.txt
-          cd OneForAll-master
+          7z x OneForAll-0.4.3/data/subnames_big.7z -o OneForAll-0.4.3/data/
+          mv OneForAll-0.4.3/data/subnames_big.txt OneForAll-0.4.3/data/subnames.txt
+          cp input/actions.txt OneForAll-0.4.3/domains.txt
+          cd OneForAll-0.4.3/
           python oneforall.py --targets ./domains.txt run
           tar -czvf results.tar.gz results/*
           cd ..
-          mv OneForAll-master/results.tar.gz output/results.tar.gz
+          mv OneForAll-0.4.3/results.tar.gz output/results.tar.gz
         shell: bash
       - name: Create local changes
         run: |
