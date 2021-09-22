@@ -20,7 +20,7 @@ jobs:
           mv OneForAll-0.4.3/data/subnames.txt OneForAll-0.4.3/data/subnames1.txt
           sudo apt-get install p7zip
           cd OneForAll-0.4.3/data/
-          7z x OneForAll-0.4.3/data/subnames_big.7z
+          7z x subnames_big.7z
           mv subnames_big.txt subnames.txt
           cd ..
           cd ..
