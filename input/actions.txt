@@ -1,2 +1,8 @@
--q 'domain="huolala.cn"' --host huolala.cn -m sfscan -o output/huolala.cn.txt
--q 'domain="huolala.work"' --host huolala.work -m sfscan -o output/huolala.work.txt
+huolala.cn
+huolala.work
+hllqiye.com
+hllep.com
+huoliuliu.work
+h66.cn
+huolala.work
+huolala.cn
